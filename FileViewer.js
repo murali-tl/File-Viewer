@@ -78,7 +78,6 @@ const path = require('path');
 class FileViewer {
     constructor() {
         this.directoryPath = __dirname.replace('\\','/');
-        //console.log(this.directoryPath,'\\');
         this.fs = require('fs');
         this.filesDict = { 'Files': [], 'Folders': [] };
         this.historyList = [];
@@ -107,7 +106,6 @@ class FileViewer {
         if (command === Constants.EXIT) { return true; }
         let commandArr = command.split(' ');
         commandArr = this.removeEmptys(commandArr);
-        //console.log(commandArr);
         if (commandArr[commandArr.length - 1] === Constants.HELP || commandArr[commandArr.length - 1] === Constants.HELP_SHORT) {
             this.help(commandArr);
         }
@@ -210,7 +208,6 @@ class FileViewer {
                 this.printArray(extensionDict[key]);
                 console.log('\n');
             }
-            //console.log(extensionDict);
         }
         else {
             console.log('Invalid "ls" command.');
@@ -228,9 +225,7 @@ class FileViewer {
         this.availableFiles = filenames;
        }
        catch(err){
-        //console.log('Directory invalid');
        }
-        //return this.filesDict;
     }
 
     printArray(arr) {
